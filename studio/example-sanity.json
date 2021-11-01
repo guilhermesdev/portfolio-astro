@@ -13,13 +13,13 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
+    "@sanity/color-input",
     "dark-theme-blue"
   ],
   "env": {
     "development": {
       "plugins": [
-        "@sanity/vision",
-        "@sanity/color-input"
+        "@sanity/vision"
       ]
     }
   },
