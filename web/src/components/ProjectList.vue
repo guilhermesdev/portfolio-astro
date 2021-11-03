@@ -1,5 +1,7 @@
 <template>
 	<section id="portfolio">
+		<h2>Portfolio</h2>
+
 		<ul>
 			<li
 				v-for="project in projects"
@@ -21,6 +23,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+h2 {
+	margin-bottom: 1rem;
+}
 
 ul {
 	list-style: none;
