@@ -12,6 +12,11 @@ export default {
       name: 'color',
       title: 'Color',
       type: 'color'
+    },
+    {
+      name: 'textColor',
+      title: 'Text color',
+      type: 'color'
     }
   ],
 }

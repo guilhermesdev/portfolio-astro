@@ -42,10 +42,20 @@ export default {
       type: 'string',
     },
     {
+      name: 'repo',
+      title: 'Repository link',
+      type: 'url'
+    },
+    {
+      name: 'preview',
+      title: 'Preview link',
+      type: 'url'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
-    },
+    }
   ],
 
   preview: {

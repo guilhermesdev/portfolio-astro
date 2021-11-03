@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="wrapper">
 		<h3>{{project.title}}</h3>
 
 		<img
@@ -18,20 +18,44 @@
 				:key="category._id"
 			>
 				<span
-					:style="`background-color: ${category.color.hex};`"
+					:style="{
+						'background-color': category.color.hex,
+						color: category.textColor.hex	|| '#fff'
+					}"
 				>
 					{{ category.title }}
 				</span>
 			</li>
 		</ul>
+
+		<div class="button-wrapper">
+			<Button
+				v-if="project.repo"
+				color="#22262C"
+				tag="a"
+				:href="project.repo"
+				target="_blank"
+			>Repositório</Button>
+			<Button
+				v-if="project.preview"
+				tag="a"
+				:href="project.preview"
+				target="_blank"
+			>Preview</Button>
+		</div>
 	</div>
 </template>
 
 <script>
 	import { sanityImage } from '@/sanity';
 
+	import Button from '@/components/Button.vue';
+
 	export default {
 		props: { project: Object },
+		components: {
+			Button
+		},
 		methods: {
 			sanityImage
 		}
@@ -58,7 +82,7 @@ ul {
 	}
 }
 
-div {
+.wrapper {
 	background-color: var(--color-bg2);
 	padding: 1rem;
 	border-radius: 10px;
@@ -66,5 +90,14 @@ div {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+}
+
+.button-wrapper {
+	display: flex;
+	gap: .5rem;
+
+	> * {
+		flex: 1;
+	}
 }
 </style>

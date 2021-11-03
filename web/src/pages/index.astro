@@ -10,10 +10,15 @@ const query = `{
     title
     slug{current}
     excerpt
+    repo
+    preview
     categories {
       _id
       title
       color {
+        hex
+      }
+      textColor {
         hex
       }
     }
