@@ -73,10 +73,12 @@ ul {
 	list-style: none;
 
 	display: flex;
+	flex-wrap: wrap;
 	gap: 5px;
 
 	span {
-		padding: 5px;
+		display: inline-block;
+		padding: 3px;
 		border-radius: 5px;
 		color: #fff;
 	}
