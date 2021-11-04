@@ -25,7 +25,7 @@ export default {
 <style lang="scss" scoped>
 
 h2 {
-	margin-bottom: 1rem;
+	margin: 1.5rem 0;
 }
 
 ul {

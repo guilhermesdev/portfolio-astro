@@ -4,6 +4,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Fragment from '@/components/Fragment.astro';
 import ProjectList from '@/components/ProjectList.vue';
 
+import importAsset from '@/utils/importAsset.js'
+
+const arrowDownSvg = await importAsset('arrow-down.svg');
+
 const query = `{
 	allProject {
     _id
@@ -44,22 +48,45 @@ const projects = data.allProject;
     <div class="presentation">
       <h1>Guilherme Souza</h1>
       <p>Desenvolvedor frontend</p>
-      <!-- <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
-        width="50"
-      /> -->
-      <div style="display: inline-block; margin-top: 1rem"><br>
-        <img align="center" alt="HTML" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-        <img align="center" alt="CSS" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-        <img align="center" alt="JavaScript" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-        <img align="center" alt="TypeScript" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
-        <img align="center" alt="VueJS" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg">
-        <img align="center" alt="Nuxt" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nuxtjs/nuxtjs-original.svg">
-        <img align="center" alt="NodeJS" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg">
-        <img align="center" alt="Sass" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg">
-</div>
+      <div class="techs">
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+          alt="HTML"
+        />
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+          alt="CSS"
+        />
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg"
+          alt="JavaScript"
+        />
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg"
+          alt="TypeScript"
+        />
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg"
+          alt="VueJS"
+        />
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nuxtjs/nuxtjs-original.svg"
+          alt="Nuxt"
+        />
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg"
+          alt="NodeJS"
+        />
+        <img 
+          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg"
+          alt="Sass"
+        />
+      </div>
+
+      <a href="#sobre" class="arrow-down">{arrowDownSvg}</a>
     </div>
 		<ProjectList projects={projects} />
+    
 	</main>
 </BaseLayout>
 

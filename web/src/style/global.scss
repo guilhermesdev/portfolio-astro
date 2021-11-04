@@ -5,7 +5,6 @@
 }
 
 :root {
-  // --user-font-scale: 1rem - 16px;
   --color-bg: #0c0e14;
   --color-bg2: #15171d;
   --color-accent: #18db8a;
@@ -14,7 +13,6 @@
 
   font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
-  // font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
 
   scroll-behavior: smooth;
 }
