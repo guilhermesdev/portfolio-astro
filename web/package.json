@@ -12,9 +12,10 @@
     "@astrojs/renderer-preact": "^0.2.2",
     "@astrojs/renderer-vue": "^0.1.9",
     "astro": "^0.20.12",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0"    
   },
   "dependencies": {
-    "@sanity/image-url": "^1.0.1"
+    "@sanity/image-url": "^1.0.1",
+    "sanity-blocks-vue-component": "^1.0.1"
   }
 }

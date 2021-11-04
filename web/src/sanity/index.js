@@ -11,6 +11,10 @@ export function sanityGraphqlQuery(query) {
 	return `${import.meta.env.SANITY_GRAPHQL_URL}?query=${query}`;
 }
 
+export function sanityFetch(groqQuery) {
+	return fetch(`${import.meta.env.SANITY_GROQ_URL}?query=${groqQuery}`);
+}
+
 export function sanityImage(source) {
 	return imageUrlBuilder(client).image(source);
 }

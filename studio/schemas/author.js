@@ -1,7 +1,10 @@
+import { CgProfile } from 'react-icons/cg';
+
 export default {
   name: 'author',
   title: 'Author',
   type: 'document',
+  icon: CgProfile,
   fields: [
     {
       name: 'name',

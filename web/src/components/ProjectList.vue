@@ -14,19 +14,51 @@
 </template>
 
 <script>
+import { sanityGraphqlQuery } from '@/sanity';
+
 import ProjectComponent from '@/components/ProjectComponent.vue';
 
 export default {
 	components: { ProjectComponent },
-	props: { projects: Object }
+	async setup() {
+		const query = `{
+			allProject {
+				_id,
+				title,
+				slug{current},
+				excerpt,
+				repo,
+				preview,
+				categories {
+					_id,
+					title,
+					color {
+						hex
+					},
+					textColor {
+						hex
+					}
+				},
+				mainImage {
+					asset {   
+						url
+					}
+				}
+			}
+		}`;
+
+		const response = await fetch(sanityGraphqlQuery(query));
+		const { data } = await response.json();
+
+		const projects = data.allProject;
+
+		return { projects };
+	}
 }
 </script>
 
 <style lang="scss" scoped>
 
-h2 {
-	margin: 1.5rem 0;
-}
 
 ul {
 	list-style: none;

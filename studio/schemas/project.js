@@ -1,7 +1,10 @@
+import { GrProjects } from 'react-icons/gr';
+
 export default {
   name: 'project',
-  title: 'Project',
+  title: 'Projects',
   type: 'document',
+  icon: GrProjects,
   fields: [
     {
       name: 'title',

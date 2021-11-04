@@ -1,7 +1,10 @@
+import { AiFillTags } from 'react-icons/ai';
+
 export default {
   name: 'category',
-  title: 'Category',
+  title: 'Categories',
   type: 'document',
+  icon: AiFillTags,
   fields: [
     {
       name: 'title',
@@ -18,5 +21,5 @@ export default {
       title: 'Text color',
       type: 'color'
     }
-  ],
+  ]
 }

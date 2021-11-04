@@ -9,6 +9,7 @@ import blockContent from './blockContent'
 import category from './category'
 import project from './project'
 import author from './author'
+import siteSettings from './siteSettings'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,6 +20,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+    siteSettings,
     project,
     author,
     category,

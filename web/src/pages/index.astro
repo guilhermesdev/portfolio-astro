@@ -1,44 +1,20 @@
 ---
-import { sanityGraphqlQuery } from '@/sanity';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Fragment from '@/components/Fragment.astro';
 import ProjectList from '@/components/ProjectList.vue';
+import About from '@/components/About.vue';
 
-import importAsset from '@/utils/importAsset.js'
+import importSvg from '@/utils/importSvg.js';
+import { sanityFetch } from '@/sanity';
 
-const arrowDownSvg = await importAsset('arrow-down.svg');
+const query = `*[_type == 'siteSettings'] { title }[0]`;
+const response = await sanityFetch(query);
 
-const query = `{
-	allProject {
-    _id
-    title
-    slug{current}
-    excerpt
-    repo
-    preview
-    categories {
-      _id
-      title
-      color {
-        hex
-      }
-      textColor {
-        hex
-      }
-    }
-    mainImage {
-      asset {   
-        url
-      }
-    }
-  }
-}`;
+const { result: { title } } = await response.json();
 
-const response = await fetch(sanityGraphqlQuery(query));
-const { data } = await response.json();
-const projects = data.allProject;
+const arrowDownSvg = await importSvg('arrow-down.svg');
 ---
-<BaseLayout title="Portfolio">
+<BaseLayout title={title}>
 	<Fragment slot="meta">			
 		<link rel="stylesheet" href={Astro.resolve('../style/global.css')}>
 		<link rel="stylesheet" href={Astro.resolve('../style/home.css')}>
@@ -85,8 +61,11 @@ const projects = data.allProject;
 
       <a href="#sobre" class="arrow-down">{arrowDownSvg}</a>
     </div>
-		<ProjectList projects={projects} />
-    
+
+    <About />
+
+		<ProjectList />
+
 	</main>
 </BaseLayout>
 
