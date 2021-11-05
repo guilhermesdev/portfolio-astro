@@ -1,12 +1,9 @@
 <template>
 	<div class="wrapper">
-		<h3>{{project.title}}</h3>
+		<h3>{{ project.title }}</h3>
 
 		<img
-			:src="sanityImage(project.mainImage.asset.url)
-				.width(300)
-				.height(185)
-				.url()"
+			:src="sanityImage(project.mainImage).url()"
 			:alt="project.title"
 		/>
 
@@ -19,8 +16,8 @@
 			>
 				<span
 					:style="{
-						'background-color': category.color.hex,
-						color: category.textColor.hex	|| '#fff'
+						'background-color': category.color,
+						color: category.textColor	|| '#fff'
 					}"
 				>
 					{{ category.title }}

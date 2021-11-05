@@ -14,43 +14,31 @@
 </template>
 
 <script>
-import { sanityGraphqlQuery } from '@/sanity';
+import { sanityFetch } from '@/sanity';
 
 import ProjectComponent from '@/components/ProjectComponent.vue';
 
 export default {
 	components: { ProjectComponent },
 	async setup() {
-		const query = `{
-			allProject {
+		const query = `*[_type == 'project'] {
+			_id,
+			title,
+			excerpt,
+			"slug": slug.current,
+			repo,
+			preview,
+			categories[]->{
 				_id,
 				title,
-				slug{current},
-				excerpt,
-				repo,
-				preview,
-				categories {
-					_id,
-					title,
-					color {
-						hex
-					},
-					textColor {
-						hex
-					}
-				},
-				mainImage {
-					asset {   
-						url
-					}
-				}
-			}
+				"color": color.hex,
+				"textColor": textColor.hex
+			},
+			"mainImage": mainImage.asset->url
 		}`;
 
-		const response = await fetch(sanityGraphqlQuery(query));
-		const { data } = await response.json();
-
-		const projects = data.allProject;
+		const response = await sanityFetch(query);
+		const { result: projects } = await response.json();
 
 		return { projects };
 	}
