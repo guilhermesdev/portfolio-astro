@@ -23,8 +23,16 @@ export default {
   setup() {
     const items = ref([
       {
+        title: 'Sobre',
+        href: '#sobre'
+      },
+      {
         title: 'Portfolio',
         href: '#portfolio'
+      },
+      {
+        title: 'Contato',
+        href: '#contato'
       }
     ]);
 

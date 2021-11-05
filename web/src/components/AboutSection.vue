@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section id="sobre">
 		<h2>Sobre mim</h2>
 		<SanityBlocks :blocks="about" />
 	</section>

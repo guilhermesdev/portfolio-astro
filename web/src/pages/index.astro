@@ -2,7 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Fragment from '@/components/Fragment.astro';
 import ProjectList from '@/components/ProjectList.vue';
-import About from '@/components/About.vue';
+import AboutSection from '@/components/AboutSection.vue';
+import ContactSection from '@/components/ContactSection.astro';
 
 import importSvg from '@/utils/importSvg.js';
 import { sanityFetch } from '@/sanity';
@@ -21,50 +22,54 @@ const arrowDownSvg = await importSvg('arrow-down.svg');
 	</Fragment>
 
 	<main>
-    <div class="presentation">
-      <h1>Guilherme Souza</h1>
-      <p>Desenvolvedor frontend</p>
-      <div class="techs">
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
-          alt="HTML"
-        />
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
-          alt="CSS"
-        />
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg"
-          alt="JavaScript"
-        />
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg"
-          alt="TypeScript"
-        />
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg"
-          alt="VueJS"
-        />
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nuxtjs/nuxtjs-original.svg"
-          alt="Nuxt"
-        />
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg"
-          alt="NodeJS"
-        />
-        <img 
-          src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg"
-          alt="Sass"
-        />
+    <div class="container">
+      <div class="presentation">
+        <h1>Guilherme Souza</h1>
+        <p>Desenvolvedor frontend</p>
+        <div class="techs">
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+            alt="HTML"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+            alt="CSS"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg"
+            alt="JavaScript"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg"
+            alt="TypeScript"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg"
+            alt="VueJS"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nuxtjs/nuxtjs-original.svg"
+            alt="Nuxt"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg"
+            alt="NodeJS"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg"
+            alt="Sass"
+          />
+        </div>
+
+        <a href="#sobre" class="arrow-down">{arrowDownSvg}</a>
       </div>
 
-      <a href="#sobre" class="arrow-down">{arrowDownSvg}</a>
+      <AboutSection />
+
+      <ProjectList />
     </div>
 
-    <About />
-
-		<ProjectList />
+    <ContactSection />
 
 	</main>
 </BaseLayout>

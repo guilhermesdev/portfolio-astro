@@ -29,7 +29,7 @@
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .button {
 	display: flex;
 	justify-content: center;
