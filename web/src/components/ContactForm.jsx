@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks';
 
 const {
+	FORM_SUBMIT_URL,
 	FORM_NAME,
 	FORM_SUBJECT,
 	FORM_MESSAGE,
@@ -13,17 +14,26 @@ export default function ContactForm() {
 	const [message, setMessage] = useState('');
 	const [email, setEmail] = useState('');
 
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
 		e.preventDefault();
 
-		const body = {
+		const data = {
 			[FORM_NAME]: name,
 			[FORM_EMAIL]: email,
 			[FORM_SUBJECT]: subject,
 			[FORM_MESSAGE]: message
+		};
+
+		const body = new FormData();
+
+		for (let item in data) {
+			body[item] = data[item];
 		}
 
-		console.log(body);
+		await fetch(FORM_SUBMIT_URL, {
+			method: 'POST',
+			body
+		});
 
 		setName('');
 		setEmail('');
